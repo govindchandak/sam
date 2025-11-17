@@ -33,7 +33,7 @@ const Header = () => {
               className="w-10 h-10 object-contain"
             />
             <span className="text-white font-semibold tracking-wider text-lg">
-              SAM
+              Aniva
             </span>
           </Link>
 

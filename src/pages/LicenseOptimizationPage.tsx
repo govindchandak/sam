@@ -90,86 +90,86 @@ const LicenseOptimizationPage = () => {
 
         {/* ==================== SECTION 1 – HERO (BUTTON ALWAYS VISIBLE) ==================== */}
 <section className="relative min-h-screen flex flex-col justify-center px-6 py-24">
-  {/* Background Gradients */}
-  <div
-    className="absolute inset-0 z-0"
-    style={{
-      background: `
-        radial-gradient(ellipse 110% 70% at 25% 80%, rgba(147, 51, 234, 0.12), transparent 55%),
-        radial-gradient(ellipse 130% 60% at 75% 15%, rgba(59, 130, 246, 0.10), transparent 65%),
-        radial-gradient(ellipse 80% 90% at 20% 30%, rgba(236, 72, 153, 0.14), transparent 50%),
-        radial-gradient(ellipse 100% 40% at 60% 70%, rgba(16, 185, 129, 0.08), transparent 45%),
-        #000000
-      `,
-    }}
-  />
+      {/* Background Gradients */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: `
+            radial-gradient(ellipse 110% 70% at 25% 80%, rgba(147, 51, 234, 0.12), transparent 55%),
+            radial-gradient(ellipse 130% 60% at 75% 15%, rgba(59, 130, 246, 0.10), transparent 65%),
+            radial-gradient(ellipse 80% 90% at 20% 30%, rgba(236, 72, 153, 0.14), transparent 50%),
+            radial-gradient(ellipse 100% 40% at 60% 70%, rgba(16, 185, 129, 0.08), transparent 45%),
+            #000000
+          `,
+        }}
+      />
 
-  <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
-    {/* Badge */}
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8 }}
-      className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-orange-500/30 bg-orange-500/5 backdrop-blur-sm"
-    >
-      <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
-      <span className="text-sm font-semibold text-orange-300 tracking-widest">
-        COST REDUCTION & OPTIMIZATION
-      </span>
-    </motion.div>
-
-    {/* Headline */}
-    <motion.h1
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-      className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
-    >
-      <span className="block text-white drop-shadow-lg">
-        Software License
-      </span>
-      <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-200 via-amber-300 to-orange-400 drop-shadow-lg">
-        Optimization
-      </span>
-      <span className="block text-white mt-3 drop-shadow-lg">
-        Are You Paying Too Much?
-      </span>
-    </motion.h1>
-
-    {/* Subtext */}
-    <motion.p
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.8, delay: 0.4 }}
-      className="text-xl text-gray-200 max-w-4xl mx-auto"
-    >
-      Most organizations waste <strong className="text-amber-300">40–45%</strong> on unused licenses. We help you reclaim control.
-    </motion.p>
-
-    {/* CTA BUTTON – ALWAYS VISIBLE */}
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, delay: 0.6 }}
-      className="flex justify-center"
-    >
-      <a
-        href="/#contact"
-        className="group inline-flex items-center gap-3 px-9 py-4 text-lg font-bold rounded-xl bg-gradient-to-r from-orange-600 to-amber-600 text-white shadow-xl hover:from-orange-500 hover:to-amber-500 hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105"
-      >
-        <span>Discover Your Savings</span>
-        <svg
-          className="w-5 h-5 transition-transform group-hover:translate-x-1"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
+      <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-orange-500/30 bg-orange-500/5 backdrop-blur-sm"
         >
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-        </svg>
-      </a>
-    </motion.div>
-  </div>
-</section>
+          <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
+          <span className="text-sm font-semibold text-orange-300 tracking-widest">
+            SOFTWARE LICENSE OPTIMIZATION
+          </span>
+        </motion.div>
+
+        {/* Headline */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+        >
+          <span className="block text-white drop-shadow-lg">
+            Are You Paying
+          </span>
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-200 via-amber-300 to-orange-400 drop-shadow-lg">
+            Too Much
+          </span>
+          <span className="block text-white mt-3 drop-shadow-lg">
+            For Your Software?
+          </span>
+        </motion.h1>
+
+        {/* Subtext */}
+        <motion.p
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-xl text-gray-200 max-w-4xl mx-auto"
+        >
+          Most organizations overspend <strong className="text-amber-300">40–45%</strong> on unused licenses. We help you reclaim control.
+        </motion.p>
+
+        {/* CTA BUTTON – ALWAYS VISIBLE */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex justify-center"
+        >
+          <a
+            href="/contact"
+            className="group inline-flex items-center gap-3 px-9 py-4 text-lg font-bold rounded-xl bg-gradient-to-r from-orange-600 to-amber-600 text-white shadow-xl hover:from-orange-500 hover:to-amber-500 hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105"
+          >
+            <span>Discover Your Savings</span>
+            <svg
+              className="w-5 h-5 transition-transform group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+            </svg>
+          </a>
+        </motion.div>
+      </div>
+    </section>
 
         {/* ==================== SECTION 2 – IMPACT METRICS ==================== */}
         <section className="py-20 px-6 bg-stone-950">

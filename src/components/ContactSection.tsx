@@ -111,8 +111,8 @@ const ContactFooter = () => {
               <p>Prefer email? Sounds good.</p>
               <p>
                 I’m over at{" "}
-                <a href="mailto:anup@example.com" className="text-primary font-bold hover:underline">
-                  anup@example.com
+                <a href="mailto:contact@aniva.com" className="text-primary font-bold hover:underline">
+                  contact@aniva.com
                 </a>
               </p>
             </div>

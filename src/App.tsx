@@ -9,6 +9,7 @@ import ManagedServicesPage from "./pages/ManagedServicesPage";
 import LicenseOptimizationPage from "./pages/LicenseOptimizationPage";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -18,6 +19,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+      <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           {/* Service Pages */}

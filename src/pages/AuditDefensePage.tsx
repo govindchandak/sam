@@ -190,9 +190,10 @@ const AuditDefensePage = () => {
     <main className="relative min-h-screen bg-black text-white overflow-x-hidden">
       <Header />
 
-      {/* HERO – Fixed layout */}
       <section className="relative min-h-screen flex flex-col justify-center px-6 py-24">
-        <div className="absolute inset-0 z-0" style={{
+      <div 
+        className="absolute inset-0 z-0" 
+        style={{
           background: `
             radial-gradient(ellipse 110% 70% at 25% 80%, rgba(147, 51, 234, 0.12), transparent 55%),
             radial-gradient(ellipse 130% 60% at 75% 15%, rgba(59, 130, 246, 0.10), transparent 65%),
@@ -200,24 +201,73 @@ const AuditDefensePage = () => {
             radial-gradient(ellipse 100% 40% at 60% 70%, rgba(16, 185, 129, 0.08), transparent 45%),
             #000000
           `,
-        }} />
-        <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-orange-500/30 bg-orange-500/5 backdrop-blur-sm">
-            <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
-            <span className="text-sm font-semibold text-orange-300 tracking-widest">AUDIT DEFENSE</span>
-          </motion.div>
+        }} 
+      />
+      
+      <div className="relative z-10 max-w-5xl mx-auto text-center space-y-7">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-orange-500/30 bg-orange-500/5 backdrop-blur-sm"
+        >
+          <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
+          <span className="text-sm font-semibold text-orange-300 tracking-widest">
+            AUDIT DEFENSE
+          </span>
+        </motion.div>
 
-          <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
-            <span className="block text-white">Received an Audit</span>
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-200 via-amber-300 to-orange-400">Notification?</span>
-            <span className="block text-white mt-3">Here's What You Do</span>
-          </motion.h1>
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ delay: 0.2 }} 
+          className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+        >
+          <span className="block text-white">Received an Audit</span>
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-200 via-amber-300 to-orange-400">
+            Notification?
+          </span>
+          <span className="block text-white mt-3">Here's What You Do</span>
+        </motion.h1>
 
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="text-xl text-gray-200 max-w-4xl mx-auto">
-            If you've just received a software audit, <strong className="text-amber-300">don't panic</strong> — but <strong className="text-amber-300">don't respond right away</strong> either.
-          </motion.p>
-        </div>
-      </section>
+        <motion.p 
+          initial={{ opacity: 0 }} 
+          animate={{ opacity: 1 }} 
+          transition={{ delay: 0.4 }} 
+          className="text-xl text-gray-200 max-w-4xl mx-auto"
+        >
+          If you've just received a software audit,{' '}
+          <strong className="text-amber-300">don't panic</strong> — but{' '}
+          <strong className="text-amber-300">don't respond right away</strong> either.
+        </motion.p>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+          className="flex justify-center pt-2"
+        >
+          <a
+            href="/contact"
+            className="group inline-flex items-center gap-3 px-9 py-4 text-lg font-bold rounded-xl bg-gradient-to-r from-orange-600 to-amber-600 text-white shadow-xl hover:from-orange-500 hover:to-amber-500 hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105"
+          >
+            <span>Get Expert Help Now</span>
+            <svg
+              className="w-5 h-5 transition-transform group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2.5} 
+                d="M13 7l5 5m0 0l-5 5m5-5H6" 
+              />
+            </svg>
+          </a>
+        </motion.div>
+      </div>
+    </section>
 
       {/* First Steps */}
       <section className="py-20 px-6 bg-stone-950">

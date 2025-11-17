@@ -1,15 +1,13 @@
-'use client';
 
 import { useEffect, useState, useRef } from 'react';
 import Header from '../components/Header';
+import {motion} from 'framer-motion';
+import { useNavigate } from 'react-router-dom';
 
-// ========================================
-// TYPES
-// ========================================
 type Service = {
   title: string;
   desc: string;
-};
+};  
 
 type Platform = {
   name: string;
@@ -54,6 +52,8 @@ const PlatformCard: React.FC<PlatformCardProps> = ({ platform, index }) => (
 const ManagedServicesPage = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const section3Ref = useRef<HTMLDivElement>(null);
+
+  const navigate = useNavigate();
 
   /* -------------------------------------------------
      Scroll-progress for Section 3 timeline
@@ -179,51 +179,83 @@ const ManagedServicesPage = () => {
         </div>
 
         {/* ====================== SECTION 1 – HERO (SAME AS LICENSE PAGE) ====================== */}
-        <section
-          className="relative min-h-screen flex flex-col justify-center pt-20 pb-24 px-4 sm:px-6 lg:px-8"
-          style={{
-            background: `
-              radial-gradient(ellipse 110% 70% at 25% 80%, rgba(147, 51, 234, 0.12), transparent 55%),
-              radial-gradient(ellipse 130% 60% at 75% 15%, rgba(59, 130, 246, 0.10), transparent 65%),
-              radial-gradient(ellipse 80% 90% at 20% 30%, rgba(236, 72, 153, 0.14), transparent 50%),
-              radial-gradient(ellipse 100% 40% at 60% 70%, rgba(16, 185, 129, 0.08), transparent 45%),
-              #000000
-            `,
-          }}
+        <section className="relative min-h-screen flex flex-col justify-center px-6 py-24">
+      <div 
+        className="absolute inset-0 z-0" 
+        style={{
+          background: `
+            radial-gradient(ellipse 110% 70% at 25% 80%, rgba(147, 51, 234, 0.12), transparent 55%),
+            radial-gradient(ellipse 130% 60% at 75% 15%, rgba(59, 130, 246, 0.10), transparent 65%),
+            radial-gradient(ellipse 80% 90% at 20% 30%, rgba(236, 72, 153, 0.14), transparent 50%),
+            radial-gradient(ellipse 100% 40% at 60% 70%, rgba(16, 185, 129, 0.08), transparent 45%),
+            #000000
+          `,
+        }} 
+      />
+      
+      <div className="relative z-10 max-w-5xl mx-auto text-center space-y-8">
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-amber-500/30 bg-amber-500/5 backdrop-blur-sm"
         >
-          <div className="absolute inset-0 bg-black/30" />
+          <div className="w-2 h-2 bg-amber-400 rounded-full animate-pulse" />
+          <span className="text-sm font-semibold text-amber-300 tracking-widest">
+            SOFTWARE MANAGED SERVICES
+          </span>
+        </motion.div>
 
-          <div className="relative z-10 max-w-7xl mx-auto text-center">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight tracking-tight mb-6 sm:mb-8">
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-400">
-                Software Managed Services
-              </span>
-            </h1>
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }} 
+          animate={{ opacity: 1, y: 0 }} 
+          transition={{ delay: 0.2 }} 
+          className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+        >
+          <span className="block text-white">Is Managing Software</span>
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-yellow-300 to-amber-400">
+            Compliance
+          </span>
+          <span className="block text-white mt-3">Taking Too Much Time?</span>
+        </motion.h1>
 
-            <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-6 font-light">
-              Is managing software compliance taking too much time?
-            </p>
+        <motion.p 
+          initial={{ opacity: 0 }} 
+          animate={{ opacity: 1 }} 
+          transition={{ delay: 0.4 }} 
+          className="text-xl text-gray-200 max-w-4xl mx-auto"
+        >
+          Let us handle it for you. Our managed services give you{' '}
+          <strong className="text-amber-300">ongoing control</strong> and{' '}
+          <strong className="text-amber-300">visibility</strong> across your entire software estate.
+        </motion.p>
 
-            <p className="text-base sm:text-lg md:text-xl text-gray-400 leading-relaxed mb-10 max-w-3xl mx-auto">
-              Let us handle it for you. Our managed services give you ongoing control and visibility across your entire software estate.
-            </p>
-
-            <a
-              href="/#contact"
-              className="group inline-flex items-center gap-3 px-9 py-4 font-bold rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-black shadow-lg transition-all duration-300 hover:from-amber-400 hover:to-orange-500 hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/60"
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.6 }}
+        >
+          <button
+            onClick={()=>navigate('/contact')}
+            className="group inline-flex items-center gap-3 px-9 py-4 font-bold rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-black shadow-lg transition-all duration-300 hover:from-amber-400 hover:to-orange-500 hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/60"
+          >
+            <span>Get Started</span>
+            <svg
+              className="w-5 h-5 transition-transform group-hover:translate-x-1"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              <span>Get Started</span>
-              <svg
-                className="w-5 h-5 transition-transform group-hover:translate-x-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-          </div>
-        </section>
+              <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                strokeWidth={2.5} 
+                d="M13 7l5 5m0 0l-5 5m5-5H6" 
+              />
+            </svg>
+          </button>
+        </motion.div>
+      </div>
+    </section>
 
         {/* ====================== SECTION 2 – WHY CHOOSE US ====================== */}
         <section className="relative z-10 py-16 sm:py-24 px-4 sm:px-6 lg:px-8">

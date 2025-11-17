@@ -39,10 +39,10 @@ const CompaniesSection = () => {
       {/* Heading section */}
       <div className="container mx-auto px-6 mb-16">
         <h2 className="text-4xl md:text-5xl font-bold text-white text-center mb-4">
-          Providing Services for Leading Company Suites
+          Expertise Across Multiple Leading Software Vendors and SAM Tools
         </h2>
         <p className="text-gray-400 text-center text-lg max-w-2xl mx-auto">
-          Empowering enterprises by managing and optimizing software assets across top industry platforms and tools.
+          Supporting your organization with licensing management and optimization across a wide range of leading vendors and trusted SAM platforms.
         </p>
       </div>
 

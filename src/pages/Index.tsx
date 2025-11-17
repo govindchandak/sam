@@ -14,7 +14,7 @@ const Index = () => {
       <HeroSection />
 
       {/* Scrolling content */}
-      <div className="relative" style={{ marginTop: "100vh" }}>
+      <div className="relative" style={{ marginTop: "100vh", zIndex:10 }}>
         <section id="services">
           <ServicesSection />
         </section>

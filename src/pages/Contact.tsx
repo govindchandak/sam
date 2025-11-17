@@ -1,10 +1,6 @@
-'use client';
-
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, Check } from "lucide-react";
 import Header from "@/components/Header";
 
 const Contact = () => {
@@ -36,11 +32,11 @@ const Contact = () => {
 
   return (
     <>
-      {/* Header – Sticks to top */}
-      <Header />
+    <Header/>
 
+    <div className="min-h-screen bg-black">
       {/* Main Contact Section */}
-      <section className="relative z-10 min-h-screen bg-black text-white overflow-hidden flex flex-col pt-20 md:pt-24">
+      <section className="relative z-10 min-h-screen bg-black text-white overflow-hidden flex flex-col pt-24 md:pt-28">
         {/* Animated backdrop – clipped */}
         <div className="absolute inset-0 -z-10 overflow-hidden opacity-30">
           <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-transparent to-primary/20 animate-pulse" />
@@ -50,13 +46,13 @@ const Contact = () => {
         <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-primary/15 to-transparent pointer-events-none" />
 
         {/* Main Content */}
-        <div className="flex-1 relative max-w-7xl mx-auto px-6 md:px-12 py-16 md:py-24">
+        <div className="flex-1 relative max-w-7xl mx-auto px-6 md:px-12 py-12 md:py-16">
           {/* Hero Headline */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
           >
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-black tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-white via-white/90 to-white/70">
               Optimize Your Software Estate
@@ -76,10 +72,7 @@ const Contact = () => {
               whileHover={{ y: -4 }}
               className="relative p-8 md:p-10 bg-white/6 backdrop-blur-2xl rounded-3xl border border-white/10 shadow-2xl transition-all duration-300"
             >
-              {/* Inner glow */}
-              <div className="absolute inset-0 rounded-3xl bg-gradient-to-tr from-primary/5 via-transparent to-primary/5 opacity-70" />
-
-              <form onSubmit={handleSubmit} className="relative space-y-8">
+              <div onSubmit={handleSubmit} className="relative space-y-8">
                 <div className="grid sm:grid-cols-2 gap-6">
                   {["name", "email"].map((f) => (
                     <FloatingLabelInput
@@ -112,20 +105,21 @@ const Contact = () => {
 
                 <div className="space-y-3">
                   <label className="block text-sm font-semibold text-white/90">
-                    What’s your biggest SAM challenge?
+                    What's your biggest SAM challenge?
                   </label>
-                  <Textarea
+                  <textarea
                     name="message"
                     placeholder="e.g., Audit risk, overspending on SaaS, shadow IT, renewal tracking..."
                     value={formData.message}
                     onChange={handleChange}
                     rows={4}
-                    className="bg-white/5 border border-white/20 text-white placeholder:text-white/40 rounded-2xl resize-none focus-visible:ring-primary/60 focus-visible:border-primary transition-all duration-300"
+                    className="w-full bg-white/5 border border-white/20 text-white placeholder:text-white/40 rounded-2xl resize-none focus:outline-none focus:ring-2 focus:ring-primary/60 focus:border-primary transition-all duration-300 px-4 py-3"
                   />
                 </div>
 
-                <Button
-                  type="submit"
+                <button
+                  type="button"
+                  onClick={handleSubmit}
                   disabled={isSubmitted}
                   className="group relative w-full h-16 overflow-hidden rounded-2xl bg-gradient-to-r from-primary to-primary/90 text-black font-bold text-lg shadow-lg transition-all duration-300 hover:shadow-primary/30 hover:scale-[1.01] flex items-center justify-center gap-3 disabled:opacity-90"
                 >
@@ -140,9 +134,9 @@ const Contact = () => {
                       <Send className="w-5 h-5 transition-transform group-hover:translate-x-1" />
                     </>
                   )}
-                  <span className="absolute inset-0 bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                </Button>
-              </form>
+                  <span className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                </button>
+              </div>
             </motion.div>
 
             {/* TEXT BLOCK */}
@@ -154,7 +148,7 @@ const Contact = () => {
                 transition={{ duration: 0.8, delay: 0.3 }}
                 className="text-[10vw] md:text-[7.5vw] lg:text-[6.5vw] font-black leading-[0.88] tracking-tighter text-primary"
               >
-                Let’s Fix Your SAM
+                Let's Fix Your SAM
               </motion.h2>
 
               <motion.div
@@ -165,15 +159,18 @@ const Contact = () => {
                 className="space-y-4 text-lg text-white/85"
               >
                 <p>We help enterprises:</p>
-                <ul className="space-y-2 text-white/80">
-                  <li className="flex items-center gap-2">
-                    <span className="text-primary">Checkmark</span> Reduce license overspend by 20–30%
+                <ul className="space-y-3 text-white/80">
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <span>Reduce license overspend by 20–30%</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-primary">Checkmark</span> Eliminate audit penalties
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <span>Eliminate audit penalties</span>
                   </li>
-                  <li className="flex items-center gap-2">
-                    <span className="text-primary">Checkmark</span> Centralize SaaS & on-prem visibility
+                  <li className="flex items-start gap-3">
+                    <Check className="w-5 h-5 text-primary flex-shrink-0 mt-1" />
+                    <span>Centralize SaaS & on-prem visibility</span>
                   </li>
                 </ul>
               </motion.div>
@@ -189,10 +186,10 @@ const Contact = () => {
                   Prefer email? Write to us at:
                 </p>
                 <a
-                  href="mailto:anup@example.com"
+                  href="mailto:contact@aniva.com"
                   className="text-primary text-xl font-bold hover:underline transition"
                 >
-                  anup@example.com
+                  contact@aniva.com
                 </a>
               </motion.div>
 
@@ -217,9 +214,10 @@ const Contact = () => {
           transition={{ duration: 0.7, delay: 1 }}
           className="relative mt-16 pt-6 pb-8 border-t border-white/10 text-center text-xs text-white/40"
         >
-          © {new Date().getFullYear()} Anup Tiwari. All rights reserved.
+          © {new Date().getFullYear()} Aniva. All rights reserved.
         </motion.footer>
       </section>
+    </div>
     </>
   );
 };
@@ -245,7 +243,6 @@ const FloatingLabelInput = ({
   required,
 }: FloatingLabelInputProps) => {
   const hasValue = value.length > 0;
-  const isFocused = typeof document !== "undefined" && document.activeElement?.id === name;
 
   return (
     <div className="relative">
@@ -262,10 +259,10 @@ const FloatingLabelInput = ({
       <label
         htmlFor={name}
         className={`absolute left-4 top-4 text-white/60 pointer-events-none transition-all duration-300 origin-left ${
-          hasValue || isFocused
+          hasValue
             ? "-translate-y-7 scale-75 text-primary font-medium"
             : "translate-y-0 scale-100"
-        } peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:text-primary peer-focus:font-medium`}
+        } peer-focus:-translate-y-7 peer-focus:scale-75 peer-focus:text-primary peer-focus:font-medium peer-placeholder-shown:translate-y-0 peer-placeholder-shown:scale-100`}
       >
         {label}
       </label>
