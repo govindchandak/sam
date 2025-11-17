@@ -13,19 +13,24 @@ const HeroSection = () => {
     >
       <div className="min-h-screen w-full bg-black relative">
 
-        {/* Ember Glow Background */}
         <div
-          className="absolute inset-0 z-0"
+          className="absolute inset-0 z-0 pointer-events-none"
           style={{
             backgroundImage: `
-              radial-gradient(ellipse 110% 70% at 25% 80%, rgba(147, 51, 234, 0.12), transparent 55%),
-            radial-gradient(ellipse 130% 60% at 75% 15%, rgba(59, 130, 246, 0.10), transparent 65%),
-            radial-gradient(ellipse 80% 90% at 20% 30%, rgba(236, 72, 153, 0.14), transparent 50%),
-            radial-gradient(ellipse 100% 40% at 60% 70%, rgba(16, 185, 129, 0.08), transparent 45%),
-            #000000
+              radial-gradient(circle at 50% 50%, 
+                rgba(194, 65, 12, 0.18) 0%, 
+                rgba(194, 65, 12, 0.1) 25%, 
+                rgba(194, 65, 12, 0.04) 35%, 
+                transparent 50%
+              )
             `,
+            backgroundSize: '100% 100%',
           }}
         />
+        {/* Floating Orbs */}
+        <div className="absolute top-32 sm:top-40 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-orange-500/5 rounded-full blur-[100px] sm:blur-[120px] animate-pulse" />
+        <div className="absolute bottom-32 sm:bottom-40 right-1/4 w-64 sm:w-[28rem] h-64 sm:h-[28rem] bg-amber-600/5 rounded-full blur-[100px] sm:blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+        
 
         {/* TEXT CONTENT */}
         <div className="relative w-full max-w-5xl mx-auto px-6 md:px-8 text-center">

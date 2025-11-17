@@ -1,5 +1,3 @@
-'use client';
-
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import Header from '@/components/Header';
@@ -73,11 +71,11 @@ const phases: Phase[] = [
     content: 'Once your position is solid, our team leads all communications and negotiations with the vendor or auditor.',
     details: [
       'Handle all interactions and correspondence on your behalf',
-      'Review and challenge the auditor’s findings and calculations',
-      'Defend against inflated claims or incorrect interpretations',
+      "Review and challenge the auditor's findings and calculations",
+      "Defend against inflated claims or incorrect interpretations",
       'Negotiate final settlements based on verified compliance data',
     ],
-    outcome: 'You maintain control, transparency, and confidence while we safeguard your organization’s financial and legal interests.',
+    outcome: "You maintain control, transparency, and confidence while we safeguard your organization's financial and legal interests.",
   },
 ];
 
@@ -187,176 +185,204 @@ const PhaseDetails: React.FC<{ phase: Phase; isInView: boolean }> = ({ phase, is
 
 const AuditDefensePage = () => {
   return (
-    <main className="relative min-h-screen bg-black text-white overflow-x-hidden">
+    <>
       <Header />
-
-      <section className="relative min-h-screen flex flex-col justify-center px-6 py-24">
-      <div 
-        className="absolute inset-0 z-0" 
-        style={{
-          background: `
-            radial-gradient(ellipse 110% 70% at 25% 80%, rgba(147, 51, 234, 0.12), transparent 55%),
-            radial-gradient(ellipse 130% 60% at 75% 15%, rgba(59, 130, 246, 0.10), transparent 65%),
-            radial-gradient(ellipse 80% 90% at 20% 30%, rgba(236, 72, 153, 0.14), transparent 50%),
-            radial-gradient(ellipse 100% 40% at 60% 70%, rgba(16, 185, 129, 0.08), transparent 45%),
-            #000000
-          `,
-        }} 
-      />
-      
-      <div className="relative z-10 max-w-5xl mx-auto text-center space-y-7">
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-orange-500/30 bg-orange-500/5 backdrop-blur-sm"
-        >
-          <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
-          <span className="text-sm font-semibold text-orange-300 tracking-widest">
-            AUDIT DEFENSE
-          </span>
-        </motion.div>
-
-        <motion.h1 
-          initial={{ opacity: 0, y: 30 }} 
-          animate={{ opacity: 1, y: 0 }} 
-          transition={{ delay: 0.2 }} 
-          className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
-        >
-          <span className="block text-white">Received an Audit</span>
-          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-200 via-amber-300 to-orange-400">
-            Notification?
-          </span>
-          <span className="block text-white mt-3">Here's What You Do</span>
-        </motion.h1>
-
-        <motion.p 
-          initial={{ opacity: 0 }} 
-          animate={{ opacity: 1 }} 
-          transition={{ delay: 0.4 }} 
-          className="text-xl text-gray-200 max-w-4xl mx-auto"
-        >
-          If you've just received a software audit,{' '}
-          <strong className="text-amber-300">don't panic</strong> — but{' '}
-          <strong className="text-amber-300">don't respond right away</strong> either.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="flex justify-center pt-2"
-        >
-          <a
-            href="/contact"
-            className="group inline-flex items-center gap-3 px-9 py-4 text-lg font-bold rounded-xl bg-gradient-to-r from-orange-600 to-amber-600 text-white shadow-xl hover:from-orange-500 hover:to-amber-500 hover:shadow-2xl hover:shadow-orange-500/50 transition-all duration-300 hover:scale-105"
-          >
-            <span>Get Expert Help Now</span>
-            <svg
-              className="w-5 h-5 transition-transform group-hover:translate-x-1"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+      <main className="relative min-h-screen bg-black text-white overflow-x-hidden">
+        {/* HERO SECTION - Updated Background */}
+        <section className="relative min-h-screen flex flex-col justify-center px-6 py-24">
+          {/* New Background */}
+          <div
+            className="absolute inset-0 z-0 pointer-events-none"
+            style={{
+              backgroundImage: `
+                radial-gradient(circle at 50% 50%, 
+                  rgba(194, 65, 12, 0.18) 0%, 
+                  rgba(194, 65, 12, 0.1) 25%, 
+                  rgba(194, 65, 12, 0.04) 35%, 
+                  transparent 50%
+                )
+              `,
+              backgroundSize: '100% 100%',
+            }}
+          />
+          {/* Floating Orbs */}
+          <div className="absolute top-32 sm:top-40 left-1/4 w-72 sm:w-96 h-72 sm:h-96 bg-orange-500/5 rounded-full blur-[100px] sm:blur-[120px] animate-pulse" />
+          <div className="absolute bottom-32 sm:bottom-40 right-1/4 w-64 sm:w-[28rem] h-64 sm:h-[28rem] bg-amber-600/5 rounded-full blur-[100px] sm:blur-[120px] animate-pulse" style={{ animationDelay: '1s' }} />
+        
+          <div className="relative z-10 max-w-5xl mx-auto text-center space-y-7">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-full border border-orange-500/30 bg-orange-500/5 backdrop-blur-sm"
             >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2.5} 
-                d="M13 7l5 5m0 0l-5 5m5-5H6" 
-              />
-            </svg>
-          </a>
-        </motion.div>
-      </div>
-    </section>
+              <div className="w-2 h-2 bg-orange-400 rounded-full animate-pulse" />
+              <span className="text-sm font-semibold text-orange-300 tracking-widest">
+                AUDIT DEFENSE
+              </span>
+            </motion.div>
 
-      {/* First Steps */}
-      <section className="py-20 px-6 bg-stone-950">
-        <div className="max-w-7xl mx-auto">
-          <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-orange-300 to-amber-400">
-            Here's what to do first
-          </motion.h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {initialSteps.map((card, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} whileHover={{ y: -10 }} className="group p-8 rounded-xl bg-zinc-900/70 border border-amber-500/20 backdrop-blur-md hover:border-amber-500/50 transition-all">
-                <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500/30 to-amber-600/30 border border-orange-500/50 flex items-center justify-center mb-6">
-                  <span className="text-2xl font-bold text-orange-300">{card.icon}</span>
-                </div>
-                <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-amber-300">{card.title}</h3>
-                <p className="text-gray-300">{card.description}</p>
-              </motion.div>
-            ))}
+            <motion.h1 
+              initial={{ opacity: 0, y: 30 }} 
+              animate={{ opacity: 1, y: 0 }} 
+              transition={{ delay: 0.2 }} 
+              className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight"
+            >
+              <span className="block text-white">Received an Audit</span>
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-200 via-amber-300 to-orange-400">
+                Notification?
+              </span>
+              <span className="block text-white mt-3">Here's What You Do</span>
+            </motion.h1>
+
+            <motion.p 
+              initial={{ opacity: 0 }} 
+              animate={{ opacity: 1 }} 
+              transition={{ delay: 0.4 }} 
+              className="text-xl text-gray-200 max-w-4xl mx-auto"
+            >
+              If you've just received a software audit,{' '}
+              <strong className="text-amber-300">don't panic</strong> — but{' '}
+              <strong className="text-amber-300">don't respond right away</strong> either.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.6 }}
+              className="flex justify-center pt-2"
+            >
+              <a
+                href="/contact"
+                className="group inline-flex items-center gap-3 px-9 py-4 font-bold rounded-xl bg-gradient-to-r from-amber-500 to-orange-600 text-black shadow-lg transition-all duration-300 hover:from-amber-400 hover:to-orange-500 hover:scale-105 hover:shadow-2xl hover:shadow-amber-500/60"
+              >
+                <span>Get Expert Help Now</span>
+                <svg
+                  className="w-5 h-5 transition-transform group-hover:translate-x-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    strokeWidth={2.5} 
+                    d="M13 7l5 5m0 0l-5 5m5-5H6" 
+                  />
+                </svg>
+              </a>
+            </motion.div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* 4-Phase Fortress – Fixed Height */}
-      <section className="py-24 px-6 bg-gradient-to-b from-stone-950 to-black">
-        <div className="max-w-7xl mx-auto text-center">
-          <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold mb-20 bg-clip-text text-transparent bg-gradient-to-r from-orange-300 to-amber-400">
-            Our 4-Phase Defense Fortress
-          </motion.h2>
+        {/* First Steps */}
+        <section className="py-20 px-6 bg-stone-950">
+          <div className="max-w-7xl mx-auto">
+            <motion.h2 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold text-center mb-16 bg-clip-text text-transparent bg-gradient-to-r from-orange-300 to-amber-400">
+              Here's what to do first
+            </motion.h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {initialSteps.map((card, i) => (
+                <motion.div key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} whileHover={{ y: -10 }} className="group p-8 rounded-xl bg-zinc-900/70 border border-amber-500/20 backdrop-blur-md hover:border-amber-500/50 transition-all">
+                  <div className="w-16 h-16 rounded-xl bg-gradient-to-br from-orange-500/30 to-amber-600/30 border border-orange-500/50 flex items-center justify-center mb-6">
+                    <span className="text-2xl font-bold text-orange-300">{card.icon}</span>
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-amber-300">{card.title}</h3>
+                  <p className="text-gray-300">{card.description}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
+        {/* 4-Phase Fortress - REDUCED HEIGHT, STILL PREMIUM */}
+        <section className="py-24 px-6 bg-gradient-to-b from-stone-950 to-black">
+          <div className="max-w-7xl mx-auto text-center">
+            <motion.h2 initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="text-4xl md:text-5xl font-bold mb-20 bg-clip-text text-transparent bg-gradient-to-r from-orange-300 to-amber-400">
+              Our 4-Phase Defense Fortress
+            </motion.h2>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 lg:gap-8 max-w-5xl mx-auto">
+              {phases.map((phase, i) => (
+                <motion.div
+                  key={i}
+                  initial={{ opacity: 0, y: 60 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.15 }}
+                  className="group flex flex-col items-center"
+                >
+                  {/* SLIM, COMPACT, PREMIUM PILLAR - REDUCED HEIGHT */}
+                  <div className="relative w-20 sm:w-24 lg:w-28 h-52 sm:h-60 lg:h-64 flex flex-col justify-between">
+                    {/* Main Body */}
+                    <div className="relative flex-1 w-full bg-gradient-to-b from-zinc-800 via-zinc-900 to-black rounded-t-md shadow-2xl border-x border-t border-amber-700/50 overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-t from-amber-500/5 via-transparent to-transparent opacity-50" />
+                      <div className="absolute inset-y-0 left-1/2 w-px bg-amber-600/30 transform -translate-x-1/2" />
+
+                      {/* MASSIVE NUMBER - ~40% HEIGHT, CENTERED */}
+                      <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 flex items-center justify-center pointer-events-none">
+                        <span className="text-5xl sm:text-6xl lg:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-br from-amber-300 via-orange-200 to-amber-400 drop-shadow-2xl">
+                          {i + 1}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Top Cap */}
+                    <div className="h-3 bg-gradient-to-r from-amber-600 via-orange-500 to-amber-600 border-t border-amber-400/70" />
+
+                    {/* Bottom Base */}
+                    <div className="h-5 -mx-2 bg-gradient-to-t from-black to-zinc-900 border-x-2 border-b-2 border-amber-700/60 rounded-b-md shadow-lg" />
+
+                    {/* Subtle Glow */}
+                    <div className="absolute -inset-x-6 -top-6 h-20 bg-amber-500/10 blur-3xl rounded-full opacity-60 animate-pulse" />
+                  </div>
+
+                  {/* Title */}
+                  <div className="mt-5 text-center px-1">
+                    <h3 className="text-xs sm:text-sm lg:text-base font-bold text-gray-200 group-hover:text-amber-300 transition-colors leading-tight">
+                      {phase.title}
+                    </h3>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Timeline */}
+        <section className="py-32 px-6 bg-black relative">
+          <div className="absolute hidden md:block left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-amber-400/50 to-transparent" />
+          <div className="max-w-7xl mx-auto space-y-40">
             {phases.map((phase, i) => (
-              <motion.div key={i} initial={{ opacity: 0, y: 60 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }} className="group">
-                <div className="relative h-64 bg-gradient-to-b from-amber-900/50 via-zinc-900 to-black rounded-lg shadow-2xl border-2 border-amber-600/50 overflow-hidden">
-                  <div className="absolute top-0 inset-x-0 h-8 bg-gradient-to-r from-orange-600 via-amber-500 to-orange-600" />
-                  <div className="absolute inset-x-6 top-10 bottom-10 flex flex-col justify-between">
-                    {[...Array(10)].map((_, j) => (
-                      <div key={j} className="h-px bg-amber-500/20" />
-                    ))}
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-                  <div className="absolute inset-y-10 left-1/2 w-1 bg-amber-400/30 blur-sm" />
-                </div>
-                <div className="mt-6">
-                  <div className="inline-block px-4 py-2 rounded-full bg-orange-600/30 border border-orange-500/60 mb-3">
-                    <span className="text-xs font-bold text-amber-300">{phase.number}</span>
-                  </div>
-                  <h3 className="text-lg font-semibold text-gray-100 group-hover:text-amber-300 transition-colors">
-                    {phase.title}
-                  </h3>
-                </div>
-              </motion.div>
+              <PhaseCard key={i} phase={phase} index={i} />
             ))}
           </div>
-        </div>
-      </section>
+        </section>
 
-      {/* Timeline – Fixed alignment */}
-      <section className="py-32 px-6 bg-black relative">
-        <div className="absolute hidden md:block left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-amber-400/50 to-transparent" />
-        <div className="max-w-7xl mx-auto space-y-40">
-          {phases.map((phase, i) => (
-            <PhaseCard key={i} phase={phase} index={i} />
-          ))}
-        </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-24 px-6 bg-gradient-to-t from-black to-stone-950">
-        <div className="max-w-4xl mx-auto text-center">
-          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              <span className="block text-white">Ready to protect</span>
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-amber-400">your organization?</span>
-            </h2>
-            <p className="text-lg text-gray-400 mb-10">Let our experts handle the complexity while you focus on your business</p>
-            <motion.a
-              href="/#contact"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.98 }}
-              className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-600 to-amber-600 text-white font-bold rounded-xl shadow-xl hover:shadow-orange-500/50 transition-all"
-            >
-              Get Your Free Consultation
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </motion.a>
-          </motion.div>
-        </div>
-      </section>
-    </main>
+        {/* CTA */}
+        <section className="py-24 px-6 bg-gradient-to-t from-black to-stone-950">
+          <div className="max-w-4xl mx-auto text-center">
+            <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <span className="block text-white">Ready to protect</span>
+                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-300 to-amber-400">your organization?</span>
+              </h2>
+              <p className="text-lg text-gray-400 mb-10">Let our experts handle the complexity while you focus on your business</p>
+              <motion.a
+                href="/contact"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                className="inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-orange-600 to-amber-600 text-white font-bold rounded-xl shadow-xl hover:shadow-orange-500/50 transition-all"
+              >
+                Get Your Free Consultation
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                </svg>
+              </motion.a>
+            </motion.div>
+          </div>
+        </section>
+      </main>
+    </>
   );
 };
 
