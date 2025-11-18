@@ -200,10 +200,10 @@ const ServicesSection = () => {
             ease: "power2.inOut",
             onStart: () => {
               // Change image halfway through the fade for smoother transition
-              setTimeout(() => setCurrentIndex(1), 200);
+              setTimeout(() => setCurrentIndex(1), 120);
             },
             onReverseComplete: () => {
-              setTimeout(() => setCurrentIndex(0), 200);
+              setTimeout(() => setCurrentIndex(0), 120);
             },
           },
           "<"
@@ -227,10 +227,10 @@ const ServicesSection = () => {
             duration: 1,
             ease: "power2.inOut",
             onStart: () => {
-              setTimeout(() => setCurrentIndex(2), 200);
+              setTimeout(() => setCurrentIndex(2), 120);
             },
             onReverseComplete: () => {
-              setTimeout(() => setCurrentIndex(1), 200);
+              setTimeout(() => setCurrentIndex(1), 120);
             },
           },
           "<"
