@@ -15,7 +15,7 @@ const services = [
     subtitle: "Worried about an upcoming software audit or want to be audit ready?",
     description:
       "We help you take control before vendors do. Our audit defense services protect your business from unnecessary risks and penalties.",
-    image: "/logo.png",
+    image: "/services-images/audit.png",
     buttonText: "Explore Audit Defense",
     features: [
       "Identify compliance gaps before auditors do",
@@ -31,7 +31,7 @@ const services = [
     subtitle: "Is managing software compliance taking too much time?",
     description:
       "Let us handle it for you. Our managed services give you ongoing control and visibility across your entire software estate.",
-    image: "/logo.png",
+    image: "/services-images/managed.png",
     buttonText: "Explore Managed Services",
     features: [
       "Continuous license and entitlement tracking",
@@ -47,7 +47,7 @@ const services = [
     subtitle: "Are you paying for software you don't fully use?",
     description:
       "Most organizations do. We help you optimize licenses, usage, and renewals to unlock hidden savings.",
-    image: "/logo.png",
+    image: "/services-images/optimization.png",
     buttonText: "Explore Optimization",
     features: [
       "Analyze actual usage vs. entitlements",
@@ -143,7 +143,7 @@ const ServicesSection = () => {
   }, [isMobile]);
 
   /* -------------------------------------------------------------- */
-  /*  GSAP ScrollTrigger – unchanged                              */
+  /*  GSAP ScrollTrigger – Smooth transitions without jerks       */
   /* -------------------------------------------------------------- */
   useEffect(() => {
     if (isMobile) return;
@@ -152,81 +152,97 @@ const ServicesSection = () => {
 
     const ctx = gsap.context(() => {
       gsap.set(contentRefs.current, { opacity: 0, x: -60 });
+      
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: section,
           start: "top top",
           end: "+=350%",
           pin: true,
-          scrub: 1.2,
+          scrub: 1.5,
           anticipatePin: 1,
         },
       });
 
+      // Header fade out + first service appears
       tl.to(headerRef.current, { opacity: 0, y: -40, duration: 1.2, ease: "power2.inOut" })
         .to(
           imageRef.current,
           {
             left: "73%",
-            top: "50%",
+            top: "47%",
             scale: 1,
             width: "38vw",
             height: "68vh",
-            duration: 2,
-            ease: "power3.inOut",
+            duration: 2.5,
+            ease: "power2.inOut",
             onStart: () => setCurrentIndex(0),
+            onReverseComplete: () => setCurrentIndex(0),
           },
           "-=0.6"
         )
         .to(
           contentRefs.current[0],
-          { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" },
+          { opacity: 1, x: 0, duration: 2, ease: "power2.inOut" },
+          "-=1.5"
+        );
+
+      tl.to({}, { duration: 2 });
+
+      // Transition to second service
+      tl.to(contentRefs.current[0], { opacity: 0, x: -60, duration: 1.8, ease: "power2.inOut" })
+        .to(
+          imageRef.current,
+          {
+            opacity: 0,
+            scale: 0.96,
+            duration: 1,
+            ease: "power2.inOut",
+            onStart: () => {
+              // Change image halfway through the fade for smoother transition
+              setTimeout(() => setCurrentIndex(1), 200);
+            },
+            onReverseComplete: () => {
+              setTimeout(() => setCurrentIndex(0), 200);
+            },
+          },
+          "<"
+        )
+        .to(imageRef.current, { opacity: 1, scale: 1, duration: 1, ease: "power2.inOut" })
+        .to(
+          contentRefs.current[1],
+          { opacity: 1, x: 0, duration: 2, ease: "power2.inOut" },
           "-=1.2"
         );
 
-      tl.to({}, { duration: 1.5 });
+      tl.to({}, { duration: 2 });
 
-      tl.to(contentRefs.current[0], { opacity: 0, x: -60, duration: 1.5, ease: "power2.in" })
+      // Transition to third service
+      tl.to(contentRefs.current[1], { opacity: 0, x: -60, duration: 1.8, ease: "power2.inOut" })
         .to(
           imageRef.current,
           {
             opacity: 0,
-            scale: 0.95,
-            duration: 0.6,
+            scale: 0.96,
+            duration: 1,
             ease: "power2.inOut",
-            onComplete: () => setCurrentIndex(1),
+            onStart: () => {
+              setTimeout(() => setCurrentIndex(2), 200);
+            },
+            onReverseComplete: () => {
+              setTimeout(() => setCurrentIndex(1), 200);
+            },
           },
           "<"
         )
-        .to(imageRef.current, { opacity: 1, scale: 1, duration: 0.6, ease: "power2.inOut" })
-        .to(
-          contentRefs.current[1],
-          { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" },
-          "-=0.8"
-        );
-
-      tl.to({}, { duration: 1.5 });
-
-      tl.to(contentRefs.current[1], { opacity: 0, x: -60, duration: 1.5, ease: "power2.in" })
-        .to(
-          imageRef.current,
-          {
-            opacity: 0,
-            scale: 0.95,
-            duration: 0.6,
-            ease: "power2.inOut",
-            onComplete: () => setCurrentIndex(2),
-          },
-          "<"
-        )
-        .to(imageRef.current, { opacity: 1, scale: 1, duration: 0.6, ease: "power2.inOut" })
+        .to(imageRef.current, { opacity: 1, scale: 1, duration: 1, ease: "power2.inOut" })
         .to(
           contentRefs.current[2],
-          { opacity: 1, x: 0, duration: 1.5, ease: "power2.out" },
-          "-=0.8"
+          { opacity: 1, x: 0, duration: 2, ease: "power2.inOut" },
+          "-=1.2"
         );
 
-      tl.to({}, { duration: 1.5 });
+      tl.to({}, { duration: 2 });
     }, section);
 
     return () => ctx.revert();
@@ -368,13 +384,18 @@ const ServicesSection = () => {
         <p className="mt-3 text-sm text-gray-400 tracking-wide">Explore our solutions</p>
       </div>
 
-      {/* ==== Image ==== */}
+      {/* ==== Image - FIXED POSITION ==== */}
       <div
         ref={imageRef}
-        className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[35vw] h-[50vh] z-10 mt-8"
-        style={{ scale: 0.7, willChange: "transform, left, top, width, height" }}
+        className="absolute w-[35vw] h-[50vh] z-10"
+        style={{ 
+          left: "50%",
+          top: "47%",
+          transform: "translate(-50%, -50%) scale(0.7)",
+          willChange: "transform, left, top, width, height" 
+        }}
       >
-        <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-[#0d1520] flex items-center justify-center p-12">
+        <div className="relative w-full h-full rounded-3xl overflow-hidden shadow-2xl bg-[#0d1520] flex items-center justify-center p-2">
           <img
             src={services[currentIndex].image}
             alt={services[currentIndex].title}

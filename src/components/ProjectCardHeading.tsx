@@ -22,7 +22,7 @@ const ProjectCardHeading = () => {
               }}
             >
               Specialized SAM Experts in Managing Licensing for{' '}
-              <span className="bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent inline-block">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-200 via-amber-300 to-orange-400 inline-block">
                 Top Global Vendors
               </span>
             </motion.h2>
@@ -38,7 +38,7 @@ const ProjectCardHeading = () => {
               }}
             >
               Providing deep licensing insight, audit readiness, and optimization strategies for complex vendors like{' '}
-              <span className="font-medium text-gray-100">IBM, Microsoft, Oracle, Adobe</span>, and more.
+              <span className="font-medium text-gray-100">Microsoft, Adobe, IBM, Oracle</span>, and more.
             </motion.p>
           </div>
         </div>

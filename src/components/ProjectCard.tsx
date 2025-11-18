@@ -1,5 +1,6 @@
 import React from "react";
 import ProjectCardHeading from "./ProjectCardHeading";
+import { P } from "node_modules/framer-motion/dist/types.d-BJcRxCew";
 
 interface Project {
   title: string;
@@ -97,15 +98,22 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
   return (
     <section
-      className="min-h-screen flex items-center justify-center relative overflow-hidden"
-      style={{ backgroundColor, zIndex: 10 }}
+      className="min-h-screen flex items-center justify-center relative"
+      style={{ 
+        backgroundColor, 
+        zIndex: 10,
+        transform: 'translate3d(0, 0, 0)',
+        backfaceVisibility: 'hidden',
+        WebkitBackfaceVisibility: 'hidden',
+        willChange: 'transform'
+      }}
     >
       {/* Black side margins */}
-      <div className="absolute inset-y-0 left-0 w-[6vw] md:w-[2vw] bg-black" />
-      <div className="absolute inset-y-0 right-0 w-[6vw] md:w-[2vw] bg-black" />
+      <div className="absolute inset-y-0 left-0 w-[6vw] md:w-[2vw] bg-black" style={{ transform: 'translateZ(0)' }} />
+      <div className="absolute inset-y-0 right-0 w-[6vw] md:w-[2vw] bg-black" style={{ transform: 'translateZ(0)' }} />
 
       {/* Subtle gradient */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/10 pointer-events-none" />
+      <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/10 pointer-events-none" style={{ transform: 'translateZ(0)' }} />
 
       {/* Grain */}
       <div
@@ -113,6 +121,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
         style={{
           backgroundImage:
             'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 400 400\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.85\' numOctaves=\'4\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")',
+          transform: 'translateZ(0)'
         }}
       />
 
@@ -156,14 +165,14 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
           </div>
         </div>
 
-        {/* RIGHT – IMAGE (NO bottom shadow on hover) */}
-        <div className="relative h-full min-h-[420px] md:min-h-[460px] lg:min-h-[500px] rounded-3xl overflow-hidden shadow-2xl ring-1 ring-white/20 bg-white/10 backdrop-blur-sm group">
+        {/* RIGHT – IMAGE */}
+        <div className="relative h-full min-h-[420px] md:min-h-[460px] lg:min-h-[500px] rounded-xl overflow-hidden shadow-2xl ring-1 ring-white/20 bg-white/10 backdrop-blur-sm group"
+          style={{ transform: 'translateZ(0)' }}>
           <img
             src={image}
             alt={title}
             className="w-full h-full object-cover"
           />
-          {/* REMOVED: blackish bottom gradient on hover */}
           <div className="absolute top-0 left-0 w-20 h-20 border-t-2 border-l-2 border-white/40 rounded-tl-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
           <div className="absolute bottom-0 right-0 w-20 h-20 border-b-2 border-r-2 border-white/40 rounded-br-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
         </div>
@@ -174,7 +183,7 @@ const ProjectCard: React.FC<{ project: Project }> = ({ project }) => {
 
 export const ProjectCardsList: React.FC = () => (
   <>
-    <ProjectCardHeading />
+  <ProjectCardHeading />
     {projects.map((proj, idx) => (
       <ProjectCard key={idx} project={proj} />
     ))}
