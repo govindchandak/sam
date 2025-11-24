@@ -122,7 +122,7 @@ const ContactFooter = () => {
 
         {/* Tight footer */}
         <div className="mt-16 pt-6 border-t border-white/10 text-center text-xs text-white/40">
-          © {new Date().getFullYear()} Anup Tiwari. All rights reserved.
+          © {new Date().getFullYear()} Aniva. All rights reserved.
         </div>
       </div>
     </footer>

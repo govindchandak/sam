@@ -303,7 +303,7 @@ const ServicesSection = () => {
   return (
     <section
       ref={sectionRef}
-      className="relative h-screen w-full bg-[#0a0e1a] overflow-hidden font-inter"
+      className="relative h-screen w-full bg-black overflow-hidden font-inter"
       style={{ zIndex: 10 }}
     >
       {/* ==== Golden particles ==== */}
