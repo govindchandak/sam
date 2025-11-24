@@ -83,7 +83,7 @@ const ServicesSection = () => {
   }, []);
 
   /* -------------------------------------------------------------- */
-  /*  Golden particles - flowing dust effect                       */
+  /*  Golden particles + top-left light (unchanged)                */
   /* -------------------------------------------------------------- */
   useEffect(() => {
     if (isMobile || !canvasRef.current) return;
@@ -199,6 +199,7 @@ const ServicesSection = () => {
             duration: 1,
             ease: "power2.inOut",
             onStart: () => {
+              // Change image halfway through the fade for smoother transition
               setTimeout(() => setCurrentIndex(1), 120);
             },
             onReverseComplete: () => {
@@ -252,7 +253,7 @@ const ServicesSection = () => {
   /* -------------------------------------------------------------- */
   if (isMobile) {
     return (
-      <section className="w-full bg-black py-16 px-4 font-inter" style={{ zIndex: 10 }}>
+      <section className="w-full bg-[#0a0e1a] py-16 px-4 font-inter" style={{ zIndex: 10 }}>
         <div className="text-center mb-12">
           <h2 className="text-4xl font-medium text-white tracking-tight">Our Services</h2>
           <p className="mt-2 text-sm text-gray-400">Explore our solutions</p>
@@ -297,7 +298,7 @@ const ServicesSection = () => {
   }
 
   /* -------------------------------------------------------------- */
-  /*  Desktop layout – pure black background with golden dust     */
+  /*  Desktop layout – clean, professional, cheerful              */
   /* -------------------------------------------------------------- */
   return (
     <section
@@ -305,12 +306,72 @@ const ServicesSection = () => {
       className="relative h-screen w-full bg-black overflow-hidden font-inter"
       style={{ zIndex: 10 }}
     >
-      {/* ==== Golden particles (flowing dust) ==== */}
+      {/* ==== Golden particles ==== */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 pointer-events-none"
         style={{ mixBlendMode: "screen" }}
       />
+
+      {/* ==== Top-left golden light ==== */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
+        <div
+          className="absolute top-0 left-0 w-[600px] h-[600px] rounded-full blur-3xl opacity-20"
+          style={{
+            background:
+              "radial-gradient(circle at 0% 0%, rgba(255, 215, 0, 0.18) 0%, transparent 70%)",
+            transform: "translate(-30%, -30%)",
+          }}
+        />
+      </div>
+
+      {/* ==== Golden nebulae ==== */}
+      <div className="absolute inset-0 pointer-events-none opacity-40">
+        <div
+          className="absolute w-[700px] h-[700px] rounded-full blur-3xl"
+          style={{
+            top: "5%",
+            left: "-15%",
+            background:
+              "radial-gradient(circle, rgba(255, 193, 0, 0.14) 0%, transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute w-[900px] h-[900px] rounded-full blur-3xl"
+          style={{
+            bottom: "-25%",
+            right: "-20%",
+            background:
+              "radial-gradient(circle, rgba(255, 223, 0, 0.12) 0%, transparent 70%)",
+          }}
+        />
+        <div
+          className="absolute w-[600px] h-[600px] rounded-full blur-3xl"
+          style={{
+            top: "45%",
+            left: "50%",
+            transform: "translate(-50%, -50%)",
+            background:
+              "radial-gradient(circle, rgba(255, 215, 0, 0.10) 0%, transparent 65%)",
+          }}
+        />
+      </div>
+
+      {/* ==== Subtle gradient & stars ==== */}
+      <div className="absolute inset-0 bg-black" />
+      <div className="absolute inset-0 opacity-30">
+        {[...Array(60)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-px h-px bg-white rounded-full"
+            style={{
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              opacity: Math.random() * 0.5 + 0.2,
+            }}
+          />
+        ))}
+      </div>
 
       {/* ==== Header ==== */}
       <div
