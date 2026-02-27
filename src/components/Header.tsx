@@ -26,15 +26,12 @@ const Header = () => {
       <header className="fixed top-0 left-0 right-0 z-50 px-6 py-3 bg-black/70 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.25)] transition-all duration-500">
         <div className="flex items-center justify-between max-w-7xl mx-auto">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
+          <Link to="/" className="flex items-center">
             <img
-              src="/logo.png"
-              alt="SAM Logo"
-              className="w-10 h-10 object-contain"
+              src="/aniva-logo/final.png"
+              alt="Aniva"
+              className="h-10 w-auto object-contain"
             />
-            <span className="text-white font-semibold tracking-wider text-lg">
-              Aniva
-            </span>
           </Link>
 
           {/* Desktop Navigation */}
