@@ -28,8 +28,8 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center">
             <img
-              src="/aniva-logo/final.png"
-              alt="Aniva"
+              src="/aniva-logo/sriska2.png"
+              alt="Sriska"
               className="h-10 w-auto object-contain"
             />
           </Link>

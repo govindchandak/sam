@@ -186,10 +186,10 @@ const Contact = () => {
                   Prefer email? Write to us at:
                 </p>
                 <a
-                  href="mailto:contact@aniva.com"
+                  href="mailto:contact@sriska.com"
                   className="text-primary text-xl font-bold hover:underline transition"
                 >
-                  contact@aniva.com
+                  contact@sriska.com
                 </a>
               </motion.div>
 
@@ -214,7 +214,7 @@ const Contact = () => {
           transition={{ duration: 0.7, delay: 1 }}
           className="relative mt-16 pt-6 pb-8 border-t border-white/10 text-center text-xs text-white/40"
         >
-          © {new Date().getFullYear()} Aniva. All rights reserved.
+          © {new Date().getFullYear()} sriska. All rights reserved.
         </motion.footer>
       </section>
     </div>

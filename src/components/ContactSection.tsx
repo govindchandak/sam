@@ -111,8 +111,8 @@ const ContactFooter = () => {
               <p>Prefer email? Sounds good.</p>
               <p>
                 I’m over at{" "}
-                <a href="mailto:contact@aniva.com" className="text-primary font-bold hover:underline">
-                  contact@aniva.com
+                <a href="mailto:contact@sriska.com" className="text-primary font-bold hover:underline">
+                  contact@sriska.com
                 </a>
               </p>
             </div>
@@ -122,7 +122,7 @@ const ContactFooter = () => {
 
         {/* Tight footer */}
         <div className="mt-16 pt-6 border-t border-white/10 text-center text-xs text-white/40">
-          © {new Date().getFullYear()} Aniva. All rights reserved.
+          © {new Date().getFullYear()} sriska. All rights reserved.
         </div>
       </div>
     </footer>
